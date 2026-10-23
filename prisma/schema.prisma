@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// Hada howa le-Tableau dyal les livraisons
+model Shipment {
+  id          String @id @default(cuid())
+  shipmentId  String @unique // Mthal: SHP-9021
+  client      String
+  origin      String
+  destination String
+  status      String
+  date        String
+  amount      String
+}
